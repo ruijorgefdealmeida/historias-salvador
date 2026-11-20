@@ -48,10 +48,11 @@
     f.caps.map(c => `<li><a href="#${c.slug}">${esc(c.titulo)}</a></li>`).join("") + "</ol></section>").join("");
 
   let faseAtual = "";
+  const idxFase = nome => fases.findIndex(f => f.nome === nome) + 1;
   $("capitulos").innerHTML = caps.map((c, i) => {
-    const sep = c.fase !== faseAtual ? `<div class="fase">${esc(faseAtual = c.fase)}</div>` : "";
+    const sep = c.fase !== faseAtual ? `<div class="fase" data-f="${idxFase(c.fase)}"><span>${esc(faseAtual = c.fase)}</span></div>` : "";
     const ant = caps[i - 1], seg = caps[i + 1];
-    return sep + `<article id="${c.slug}" class="capitulo">
+    return sep + `<article id="${c.slug}" class="capitulo" data-f="${idxFase(c.fase)}">
       <p class="numero">Capítulo ${c.numero}</p>
       <h2>${esc(c.titulo)}</h2>
       <figure>${c.foto && url[c.foto]
@@ -63,6 +64,16 @@
         <a href="#indice">Índice</a>${seg ? `<a href="#${seg.slug}">${esc(seg.titulo)} →</a>` : "<span></span>"}</nav>
     </article>`;
   }).join("");
+
+  // O fundo acompanha a fase da história que está no ecrã
+  const obs = new IntersectionObserver(ents => {
+    ents.forEach(e => { if (e.isIntersecting) document.body.dataset.fase = e.target.dataset.f; });
+  }, { rootMargin: "-45% 0px -45% 0px" });
+  document.querySelectorAll("[data-f]").forEach(el => obs.observe(el));
+  const capaObs = new IntersectionObserver(ents => {
+    ents.forEach(e => { if (e.isIntersecting) document.body.dataset.fase = "0"; });
+  }, { rootMargin: "-45% 0px -45% 0px" });
+  capaObs.observe(document.querySelector(".capa")); capaObs.observe($("indice"));
 
   const alvo = location.hash && !location.hash.includes("access_token") && document.getElementById(decodeURIComponent(location.hash.slice(1)));
   if (alvo) alvo.scrollIntoView({ behavior: "instant" });
