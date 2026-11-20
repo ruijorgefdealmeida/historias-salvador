@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A Grande e Interminável História do Salvador e da Mãe</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<header class="capa">
+  <p class="sobre">Cada capítulo nasce de uma fotografia</p>
+  <h1>A Grande e Interminável História</h1>
+  <p class="subtitulo">do Salvador e da Mãe</p>
+  <div id="entrada" class="entrada" hidden>
+    <form id="form-entrada">
+      <label for="email">Entra com o teu e-mail</label>
+      <input id="email" type="email" required placeholder="o.teu@email.com" autocomplete="email">
+      <button class="botao" type="submit">Enviar link de acesso</button>
+    </form>
+    <p id="msg" class="msg"></p>
+  </div>
+  <div id="acoes" hidden>
+    <a class="botao" href="#indice">Começar a ler</a>
+    <p><button id="sair" class="ligacao">Sair</button></p>
+  </div>
+</header>
+<nav id="indice" class="indice" aria-label="Índice"></nav>
+<main id="capitulos"></main>
+<footer id="fim" class="fim" hidden>
+  <p>E a Grande e Interminável História do Salvador e da Mãe continuou. Porque, como todas as histórias boas, nunca chega a acabar. Só vira a página.</p>
+  <p><em>(Continua…)</em></p>
+</footer>
+<script src="config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="app.js"></script>
+</body>
+</html>

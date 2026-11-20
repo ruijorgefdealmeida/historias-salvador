@@ -1,0 +1,33 @@
+:root{--tinta:#1f3a5f;--acento:#c0703a;--papel:#fbf8f3;--texto:#2b2b2b;--suave:#777}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--papel);color:var(--texto);font:19px/1.7 Georgia,"Times New Roman",serif}
+a{color:var(--tinta)}
+.capa{min-height:90vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:2rem;background:linear-gradient(180deg,#fdf6ea,#f3e7d3)}
+.capa h1{font-size:clamp(2rem,6vw,3.6rem);color:var(--tinta);margin:.3em 0 0;line-height:1.15}
+.subtitulo{font-size:clamp(1.4rem,4vw,2.2rem);font-style:italic;color:var(--tinta);margin:.2em 0 1.5em}
+.sobre{text-transform:uppercase;letter-spacing:.15em;font-size:.8rem;color:var(--acento)}
+.botao{background:var(--tinta);color:#fff;text-decoration:none;padding:.7em 1.6em;border-radius:2em}
+.indice{max-width:760px;margin:0 auto;padding:3rem 1.5rem}
+.indice h2{text-align:center;color:var(--tinta)}
+.indice h3{color:var(--acento);font-size:1rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.3em}
+.indice ol{columns:2;column-gap:2rem;margin-top:0}
+@media(max-width:600px){.indice ol{columns:1}}
+.fase{text-align:center;text-transform:uppercase;letter-spacing:.2em;color:var(--acento);font-size:.85rem;margin:4rem 0 0;padding-top:3rem;border-top:1px solid #e3d7c4}
+.capitulo{max-width:720px;margin:0 auto;padding:3rem 1.5rem}
+.numero{text-align:center;color:var(--suave);margin:0;font-size:.9rem;letter-spacing:.1em;text-transform:uppercase}
+.capitulo h2{text-align:center;color:var(--tinta);font-size:clamp(1.6rem,4vw,2.2rem);margin:.2em 0 1em;line-height:1.2}
+figure{margin:0 0 2rem;text-align:center}
+figure img{width:auto;height:auto;max-width:100%;max-height:75vh;border-radius:6px;box-shadow:0 6px 24px rgba(0,0,0,.15)}
+.sem-foto{border:2px dashed #d9cbb5;border-radius:6px;padding:4rem 1rem;color:var(--suave)}
+figcaption{font-size:.85rem;font-style:italic;color:var(--suave);margin-top:.7rem}
+.texto p{margin:0 0 1em}
+.navcap{display:flex;justify-content:space-between;gap:1rem;font-size:.85rem;margin-top:2.5rem;padding-top:1rem;border-top:1px solid #e3d7c4}
+.fim{text-align:center;font-style:italic;max-width:640px;margin:0 auto;padding:4rem 1.5rem 6rem;color:var(--tinta)}
+.entrada{max-width:380px;width:100%}
+.entrada form{display:flex;flex-direction:column;gap:.7rem}
+.entrada label{font-size:.95rem;color:var(--tinta)}
+.entrada input{font:inherit;padding:.6em .9em;border:1px solid #d9cbb5;border-radius:2em;text-align:center}
+.entrada button{border:0;cursor:pointer;font:inherit}
+.msg{font-size:.9rem;color:var(--acento);min-height:1.5em}
+.ligacao{background:none;border:0;color:var(--suave);text-decoration:underline;cursor:pointer;font:inherit;font-size:.85rem}
