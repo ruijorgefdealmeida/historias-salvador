@@ -34,23 +34,36 @@ body[data-fase="0"] .f0, body[data-fase="1"] .f1, body[data-fase="2"] .f2, body[
 .msg{font-size:.9rem;color:#fff3e3;min-height:1.5em}
 .ligacao{background:none;border:0;color:#fff;opacity:.8;text-decoration:underline;cursor:pointer;font:inherit;font-size:.85rem}
 
-/* Cartões de leitura */
-.indice,.capitulo{background:var(--cartao);border-radius:18px;box-shadow:0 10px 40px rgba(0,0,0,.12);backdrop-filter:blur(2px)}
+/* Cartões de leitura: vidro tingido com a cor de cada fase */
+.indice,.capitulo{background:var(--vidro);color:var(--letra);border:1px solid var(--borda);border-radius:20px;
+  box-shadow:0 10px 40px rgba(0,0,0,.10);backdrop-filter:blur(14px) saturate(1.2);-webkit-backdrop-filter:blur(14px) saturate(1.2)}
+.indice a,.capitulo a{color:var(--titulo)}
+/* Índice: sobre a madrugada */
+.indice{--vidro:rgba(24,30,72,.38);--letra:#f4ecff;--titulo:#fff;--acento-f:#f6cfa8;--borda:rgba(255,255,255,.18)}
+/* Bebé: lilás de embalar */
+[data-f="1"]{--vidro:rgba(255,255,255,.30);--letra:#2c2852;--titulo:#3a3478;--acento-f:#7d55a6;--suave-f:#5e5888;--borda:rgba(255,255,255,.55);--pilula:#5d4f9a}
+/* Primeiros passos: jardim */
+[data-f="2"]{--vidro:rgba(240,255,238,.30);--letra:#1e3a22;--titulo:#285c30;--acento-f:#8a5a2b;--suave-f:#3f6444;--borda:rgba(255,255,255,.5);--pilula:#3f7a46}
+/* 2 a 3 anos: outono */
+[data-f="3"]{--vidro:rgba(255,246,228,.30);--letra:#45210d;--titulo:#7a3212;--acento-f:#a4471a;--suave-f:#6e3e22;--borda:rgba(255,255,255,.45);--pilula:#a14d1f}
+/* 3 a 5 anos: mar de verão (vidro mais escuro, letras claras) */
+[data-f="4"]{--vidro:rgba(8,52,84,.52);--letra:#f1fbff;--titulo:#ffffff;--acento-f:#ffe2a8;--suave-f:#cfeaf6;--borda:rgba(255,255,255,.25);--pilula:#0c4f74}
+
 .indice:empty{display:none}
 .indice{max-width:780px;margin:0 auto 3rem;padding:2.5rem 2rem}
-.indice h2{text-align:center;color:var(--tinta);margin-top:0}
-.indice h3{color:var(--acento);font-size:1rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.3em}
+.indice h2{text-align:center;color:var(--titulo);margin-top:0}
+.indice h3{color:var(--acento-f);font-size:1rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.3em}
 .indice ol{columns:2;column-gap:2rem;margin-top:0}
 .fase{text-align:center;margin:5rem 0 2rem}
-.fase span{display:inline-block;background:var(--tinta);color:#fff;text-transform:uppercase;letter-spacing:.2em;font-size:.85rem;padding:.6em 1.6em;border-radius:2em;box-shadow:0 6px 20px rgba(0,0,0,.15)}
+.fase span{display:inline-block;background:var(--pilula);color:#fff;text-transform:uppercase;letter-spacing:.2em;font-size:.85rem;padding:.6em 1.6em;border-radius:2em;box-shadow:0 6px 20px rgba(0,0,0,.15)}
 .capitulo{max-width:760px;margin:0 auto 3rem;padding:2.5rem 2.5rem 1.5rem}
-.numero{text-align:center;color:var(--suave);margin:0;font-size:.9rem;letter-spacing:.1em;text-transform:uppercase}
-.capitulo h2{text-align:center;color:var(--tinta);font-size:clamp(1.6rem,4vw,2.2rem);margin:.2em 0 1em;line-height:1.2}
+.numero{text-align:center;color:var(--acento-f);margin:0;font-size:.9rem;letter-spacing:.12em;text-transform:uppercase}
+.capitulo h2{text-align:center;color:var(--titulo);font-size:clamp(1.6rem,4vw,2.2rem);margin:.2em 0 1em;line-height:1.2}
 figure{margin:0 0 2rem;text-align:center}
-figure img{width:auto;height:auto;max-width:100%;max-height:75vh;border-radius:8px;box-shadow:0 6px 24px rgba(0,0,0,.18)}
-.sem-foto{border:2px dashed #d9cbb5;border-radius:6px;padding:4rem 1rem;color:var(--suave)}
-figcaption{font-size:.85rem;font-style:italic;color:var(--suave);margin-top:.7rem}
+figure img{width:auto;height:auto;max-width:100%;max-height:75vh;border-radius:10px;box-shadow:0 8px 28px rgba(0,0,0,.25);border:4px solid rgba(255,255,255,.6)}
+.sem-foto{border:2px dashed var(--borda);border-radius:6px;padding:4rem 1rem;color:var(--suave-f)}
+figcaption{font-size:.85rem;font-style:italic;color:var(--suave-f);margin-top:.7rem}
 .texto p{margin:0 0 1em}
-.navcap{display:flex;justify-content:space-between;gap:1rem;font-size:.85rem;margin-top:2rem;padding-top:1rem;border-top:1px solid #e3d7c4}
+.navcap{display:flex;justify-content:space-between;gap:1rem;font-size:.85rem;margin-top:2rem;padding-top:1rem;border-top:1px solid var(--borda)}
 .fim{text-align:center;font-style:italic;max-width:640px;margin:0 auto;padding:4rem 1.5rem 6rem;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.35)}
 @media(max-width:600px){body{font-size:17px}.indice ol{columns:1}.capitulo,.indice{padding:1.6rem 1.2rem 1rem;border-radius:12px;margin:0 .6rem 2rem}}
