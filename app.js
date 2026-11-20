@@ -13,9 +13,14 @@
     const { error } = await sb.auth.signInWithOtp({
       email, options: { shouldCreateUser: false, emailRedirectTo: location.origin + location.pathname }
     });
-    $("msg").textContent = error
+    if (!error) { $("msg").textContent = "Enviámos um link para " + email + ". Abre-o neste aparelho para entrar."; return; }
+    console.warn(error);
+    const t = (error.code || "") + " " + (error.message || "");
+    $("msg").textContent = /rate|limit|security purposes/i.test(t)
+      ? "Foram pedidos demasiados links seguidos. Espera um pouco e tenta outra vez."
+      : /signup|not allowed|not found/i.test(t)
       ? "Este e-mail não tem acesso às histórias."
-      : "Enviámos um link para " + email + ". Abre-o neste aparelho para entrar.";
+      : "Não foi possível enviar o link (" + (error.message || "erro") + "). Tenta outra vez.";
   });
   $("sair").addEventListener("click", async () => { await sb.auth.signOut(); location.hash = ""; location.reload(); });
 
